@@ -1,0 +1,13 @@
+{
+  "name": "devdocs-electron",
+  "version": "0.0.1",
+  "description": "DevDocs.io as app",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Damian Dziaduch",
+  "license": "Beerware",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  }
+}
