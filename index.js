@@ -1,9 +1,13 @@
 const {app, BrowserWindow, Menu, MenuItem} = require('electron')
 
+let window
+
+app.setName('DevDocs.app')
+
 function createMenu(window) {
   const template = [
     {
-      label: 'File',
+      label: app.getName(),
       submenu: [
         {
           label: 'Find',
@@ -12,6 +16,7 @@ function createMenu(window) {
             window.webContents.executeJavaScript(`document.querySelector('input[name=q]').focus()`)
           },
         },
+        {role: 'quit'},
       ],
     },
   ]
@@ -21,13 +26,31 @@ function createMenu(window) {
 }
 
 function createWindow() {
-  const window = new BrowserWindow({
+  window = new BrowserWindow({
     width: 1024,
     height: 768,
+    center: true,
+
   })
 
   window.loadURL('https://devdocs.io')
-  createMenu(window);
+  createMenu(window)
+
+  window.on('closed', () => {
+    window = undefined
+  })
 }
 
 app.on('ready', createWindow)
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (!window) {
+    createWindow()
+  }
+})

@@ -1,13 +1,16 @@
 {
   "name": "devdocs-electron",
-  "version": "0.0.1",
-  "description": "DevDocs.io as app",
+  "version": "1.0.0",
+  "description": "DevDocs.app",
+  "productName": "DevDocs.app",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=./icon.icns --prune=true --out=release-builds"
   },
   "author": "Damian Dziaduch",
   "license": "Beerware",
   "devDependencies": {
-    "electron": "^2.0.0"
+    "electron": "^2.0.0",
+    "electron-packager": "^12.0.2"
   }
 }
