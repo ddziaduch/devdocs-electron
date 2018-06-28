@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, MenuItem, shell } = require('electron')
+const { app, BrowserWindow, Menu, MenuItem, shell, globalShortcut } = require('electron')
 
 let window
 
@@ -108,14 +108,20 @@ function createMenu(window) {
 
 function createWindow() {
   window = new BrowserWindow({
-    width: 1024,
-    height: 768,
+    width: 1280,
+    height: 920,
     center: true,
 
   })
 
   window.loadURL('https://devdocs.io')
   createMenu(window)
+
+  globalShortcut.register('CmdOrCtrl+Alt+Shift+F', () => {
+    window.focus()
+    window.focusOnWebView()
+    window.webContents.executeJavaScript(`document.querySelector('input[name=q]').focus()`)
+  })
 
   window.on('closed', () => {
     window = undefined
