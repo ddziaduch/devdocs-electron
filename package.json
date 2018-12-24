@@ -5,7 +5,7 @@
   "productName": "DevDocs.app",
   "scripts": {
     "start": "electron .",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=./icon.icns --prune=true --out=release-builds"
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=./icon.icns --prune=true --out=release-builds --darwinDarkModeSupport=true"
   },
   "author": "Damian Dziaduch",
   "license": "Beerware",
