@@ -2,7 +2,7 @@ const { app, BrowserWindow, Menu, MenuItem, shell, globalShortcut } = require('e
 
 let window
 
-app.setName('DevDocs.app')
+app.name ='DevDocs.app'
 
 function createMenu(window) {
   const template = [
@@ -66,7 +66,7 @@ function createMenu(window) {
 
   if (process.platform === 'darwin') {
     template.unshift({
-      label: app.getName(),
+      label: app.name,
       submenu: [
         {role: 'about'},
         {type: 'separator'},
