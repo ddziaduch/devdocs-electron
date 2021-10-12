@@ -10,7 +10,7 @@
   "author": "Damian Dziaduch",
   "license": "Beerware",
   "devDependencies": {
-    "electron": "^10.1.2",
+    "electron": "^11.5.0",
     "electron-packager": "^15.1.0"
   }
 }
